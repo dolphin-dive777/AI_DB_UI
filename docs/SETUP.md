@@ -45,3 +45,41 @@ npm run dev
 - フロントエンド: `http://localhost:3000`
 
 🚀 **これで開発環境が整いました！**
+
+
+---
+
+## 🔐 GitHub 連携 & SSHキー設定
+
+### 7️⃣ GitHub に SSHキーを登録
+```bash
+ssh-keygen -t ed25519 -C "your-email@example.com"
+cat ~/.ssh/id_ed25519.pub
+# → GitHub アカウントに公開鍵を登録
+```
+
+### 8️⃣ GitHub へ push
+```bash
+git remote set-url origin git@github.com:<ユーザー名>/<リポジトリ名>.git
+git add .
+git commit -m "任意のコメント"
+git push origin main
+```
+
+---
+
+## 🌐 Nginx による静的配信設定
+
+### 9️⃣ フロントエンドファイルを EC2 にアップロード
+```powershell
+scp -i "your-key.pem" index.html styles.css app.js ec2-user@<EC2-IP>:/home/ec2-user/AI_DB_UI/frontend/
+```
+
+### 🔟 Nginx を起動・確認
+```bash
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+```
+
+📄 ブラウザで `http://<EC2-IP>/index.html` にアクセス

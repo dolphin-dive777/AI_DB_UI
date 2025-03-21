@@ -45,3 +45,11 @@
 - **過去バージョンとの差分を明確に記述**
 - **影響範囲を記載し、どのモジュールが影響を受けるかを明確化**
 
+
+
+### Ver.2025-03-25-01
+**仮想環境・UI構成の整備とNginxの導入**
+- `requirements.txt` を Git に追加し運用ルールを整備
+- `.gitignore` に venv とキャッシュを追加
+- EC2 環境で nginx を起動し、静的ファイルを `/frontend/` に配置
+- ChatGPT風 UI にて `/get-ai-models` API を連携

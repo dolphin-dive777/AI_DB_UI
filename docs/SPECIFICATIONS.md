@@ -96,3 +96,22 @@
 
 ✅ **この仕様を基準に、開発・デザインを進める！**
 
+
+
+---
+
+## 📌 フロントエンド仕様（追記）
+### 🔹 UI コンセプト
+- ChatGPT風デザインを採用
+- 全 AI モデルの詳細情報をカード形式で一覧表示
+- `/get-ai-models` の API から全ての項目を取得して表示
+
+### 🔹 Nginx と静的ファイルの提供
+- EC2 に nginx をインストールし、 `/home/ec2-user/AI_DB_UI/frontend/` を公開
+- `index.html`, `styles.css`, `app.js` を配置
+- `http://<EC2-IP>/index.html` で UI を表示可能
+
+### 🔹 仮想環境と requirements.txt 運用
+- `venv/` ディレクトリは Git 管理対象外（`.gitignore`）
+- ライブラリ追加時は `pip install` 後に `requirements.txt` に反映
+
